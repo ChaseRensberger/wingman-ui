@@ -1,0 +1,14 @@
+{
+  "name": "wingman-ui",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.2.2",
+    "@types/bun": "latest",
+    "tailwindcss": "^4.2.2"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}

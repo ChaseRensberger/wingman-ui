@@ -18,7 +18,7 @@ func main() {
 	r.Use(middleware.Logger)
 
 	tmpl := template.Must(template.ParseFiles("index.html"))
-
+	r.Handle("/output.css", http.FileServer(http.Dir(".")))
 	r.Get("/", func(w http.ResponseWriter, r *http.Request) {
 		tmpl.Execute(w, pageData{
 			TestValue: 1,
