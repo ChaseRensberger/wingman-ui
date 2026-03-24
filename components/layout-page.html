@@ -1,0 +1,43 @@
+{{ define "layout-page" }}
+<!-- ============================================================ -->
+<!-- ROW 1: Stats + Calendar/Goal + Exercise                       -->
+<!-- ============================================================ -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+  <!-- Left: Stats Cards (stacked) -->
+  <div class="lg:col-span-2 space-y-6">
+    {{ template "card-stats" . }}
+    {{ template "card-upgrade" . }}
+  </div>
+
+  <!-- Right Column: Activity Goal + Exercise + Cookie Settings -->
+  <div class="space-y-6">
+    {{ template "card-activity-goal" . }}
+    {{ template "card-exercise" . }}
+    {{ template "card-cookie-settings" . }}
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- ROW 2: Team + Create Account + Chat                          -->
+<!-- ============================================================ -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
+  {{ template "card-team" . }}
+  {{ template "card-create-account" . }}
+  {{ template "card-chat" . }}
+</div>
+
+<!-- ============================================================ -->
+<!-- ROW 3: Report Issue + Share Document                         -->
+<!-- ============================================================ -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+  {{ template "card-report-issue" . }}
+  {{ template "card-share" . }}
+</div>
+
+<!-- ============================================================ -->
+<!-- ROW 4: Payments Table (full width)                           -->
+<!-- ============================================================ -->
+<div class="mt-6">
+  {{ template "card-payments" . }}
+</div>
+{{ end }}

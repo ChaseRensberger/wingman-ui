@@ -40,6 +40,7 @@ type ThemeGroup struct {
 }
 
 type PageData struct {
+	ActivePage  string
 	TeamMembers []TeamMember
 	SharedUsers []SharedUser
 	Payments    []Payment
@@ -144,7 +145,15 @@ func main() {
 	}
 
 	r.Get("/", func(w http.ResponseWriter, r *http.Request) {
-		tmpl.Execute(w, data)
+		d := data
+		d.ActivePage = "layout"
+		tmpl.Execute(w, d)
+	})
+
+	r.Get("/components", func(w http.ResponseWriter, r *http.Request) {
+		d := data
+		d.ActivePage = "components"
+		tmpl.Execute(w, d)
 	})
 
 	log.Println("Starting server on :3000")

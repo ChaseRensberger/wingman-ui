@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: wingman-ui
+    runtime: docker
+    region: virginia
+    dockerfilePath: ./Dockerfile
+    envVars: []
