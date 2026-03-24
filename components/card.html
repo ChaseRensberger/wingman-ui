@@ -1,7 +1,7 @@
 {{ define "card-stats" }}
 <div class="grid gap-4 grid-cols-1 sm:grid-cols-2">
   <!-- Total Revenue -->
-  <div class="rounded-lg border border-border bg-card text-card-foreground shadow-sm">
+  <div class="rounded-xl border bg-card text-card-foreground shadow-sm">
     <div class="flex flex-row items-center justify-between p-6 pb-2">
       <h3 class="text-sm font-medium tracking-tight text-muted-foreground">Total Revenue</h3>
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-muted-foreground"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
@@ -13,7 +13,7 @@
   </div>
 
   <!-- Subscriptions -->
-  <div class="rounded-lg border border-border bg-card text-card-foreground shadow-sm">
+  <div class="rounded-xl border bg-card text-card-foreground shadow-sm">
     <div class="flex flex-row items-center justify-between p-6 pb-2">
       <h3 class="text-sm font-medium tracking-tight text-muted-foreground">Subscriptions</h3>
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-muted-foreground"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
@@ -27,33 +27,33 @@
 {{ end }}
 
 {{ define "card-activity-goal" }}
-<div class="rounded-lg border border-border bg-card text-card-foreground shadow-sm">
-  <div class="flex flex-col space-y-1.5 p-6 pb-4">
+<div class="rounded-xl border bg-card text-card-foreground shadow-sm">
+  <div class="flex flex-col gap-1.5 p-6 pb-4">
     <h3 class="font-semibold leading-none tracking-tight text-foreground">Move Goal</h3>
     <p class="text-sm text-muted-foreground">Set your daily activity goal.</p>
   </div>
   <div class="p-6 pt-0">
     <div class="flex items-center justify-center gap-4">
-      <button class="inline-flex items-center justify-center rounded-full border border-input bg-background h-8 w-8 text-sm font-medium text-foreground shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" aria-label="Decrease">
+      <button class="inline-flex items-center justify-center rounded-full border border-input bg-background h-8 w-8 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring" aria-label="Decrease">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg>
       </button>
       <div class="text-center">
         <div class="text-5xl font-bold tracking-tighter text-foreground">350</div>
         <div class="text-xs uppercase text-muted-foreground mt-1">Calories/day</div>
       </div>
-      <button class="inline-flex items-center justify-center rounded-full border border-input bg-background h-8 w-8 text-sm font-medium text-foreground shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" aria-label="Increase">
+      <button class="inline-flex items-center justify-center rounded-full border border-input bg-background h-8 w-8 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring" aria-label="Increase">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
       </button>
     </div>
   </div>
   <div class="p-6 pt-0">
-    <button class="inline-flex items-center justify-center w-full rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background">Set Goal</button>
+    <button class="inline-flex items-center justify-center w-full rounded-md bg-primary h-9 px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring">Set Goal</button>
   </div>
 </div>
 {{ end }}
 
 {{ define "card-exercise" }}
-<div class="rounded-lg border border-border bg-card text-card-foreground shadow-sm p-6">
+<div class="rounded-xl border bg-card text-card-foreground shadow-sm p-6">
   <h3 class="text-sm font-medium text-foreground">Exercise Minutes</h3>
   <p class="text-xs text-muted-foreground mt-1">Your exercise minutes are ahead of where you normally are.</p>
   <!-- Mini bar chart simulation -->
@@ -70,32 +70,32 @@
 {{ end }}
 
 {{ define "card-upgrade" }}
-<div class="rounded-lg border border-border bg-card text-card-foreground shadow-sm">
-  <div class="flex flex-col space-y-1.5 p-6">
+<div class="rounded-xl border bg-card text-card-foreground shadow-sm">
+  <div class="flex flex-col gap-1.5 p-6">
     <h3 class="font-semibold leading-none tracking-tight text-foreground">Upgrade your Subscription</h3>
     <p class="text-sm text-muted-foreground">You are currently on the free plan. Upgrade to the pro plan to get access to all features.</p>
   </div>
   <div class="p-6 pt-0 space-y-4">
     <div class="space-y-2">
       <label for="upgrade-name" class="text-sm font-medium leading-none">Name</label>
-      <input id="upgrade-name" type="text" placeholder="Your name" class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm text-foreground shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" />
+      <input id="upgrade-name" type="text" placeholder="Your name" class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base md:text-sm text-foreground shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring" />
     </div>
     <div class="space-y-2">
       <label for="upgrade-email" class="text-sm font-medium leading-none">Email</label>
-      <input id="upgrade-email" type="email" placeholder="you@example.com" class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm text-foreground shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" />
+      <input id="upgrade-email" type="email" placeholder="you@example.com" class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base md:text-sm text-foreground shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring" />
     </div>
     <div class="grid grid-cols-3 gap-2">
       <div class="space-y-2">
         <label for="upgrade-card" class="text-sm font-medium leading-none">Card Number</label>
-        <input id="upgrade-card" type="text" placeholder="1234 5678" class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm text-foreground shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" />
+        <input id="upgrade-card" type="text" placeholder="1234 5678" class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base md:text-sm text-foreground shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring" />
       </div>
       <div class="space-y-2">
         <label for="upgrade-expiry" class="text-sm font-medium leading-none">Expiry</label>
-        <input id="upgrade-expiry" type="text" placeholder="MM/YY" class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm text-foreground shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" />
+        <input id="upgrade-expiry" type="text" placeholder="MM/YY" class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base md:text-sm text-foreground shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring" />
       </div>
       <div class="space-y-2">
         <label for="upgrade-cvc" class="text-sm font-medium leading-none">CVC</label>
-        <input id="upgrade-cvc" type="text" placeholder="123" class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm text-foreground shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" />
+        <input id="upgrade-cvc" type="text" placeholder="123" class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base md:text-sm text-foreground shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring" />
       </div>
     </div>
     <!-- Plan Selection -->
@@ -122,30 +122,30 @@
     <!-- Notes -->
     <div class="space-y-2">
       <label for="upgrade-notes" class="text-sm font-medium leading-none">Notes</label>
-      <textarea id="upgrade-notes" placeholder="Any additional notes..." rows="3" class="flex w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm text-foreground shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring resize-none"></textarea>
+      <textarea id="upgrade-notes" placeholder="Any additional notes..." rows="3" class="flex min-h-[60px] w-full rounded-md border border-input bg-transparent px-3 py-2 text-base md:text-sm text-foreground shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring resize-none"></textarea>
     </div>
     <!-- Checkboxes -->
     <div class="space-y-3">
       <div class="flex items-center space-x-2">
-        <input id="upgrade-terms" type="checkbox" checked class="h-4 w-4 rounded-sm border border-input accent-primary" />
+        <input id="upgrade-terms" type="checkbox" checked class="h-4 w-4 rounded-sm border border-primary accent-primary" />
         <label for="upgrade-terms" class="text-sm font-medium leading-none cursor-pointer">I agree to the terms and conditions</label>
       </div>
       <div class="flex items-center space-x-2">
-        <input id="upgrade-emails" type="checkbox" class="h-4 w-4 rounded-sm border border-input accent-primary" />
+        <input id="upgrade-emails" type="checkbox" class="h-4 w-4 rounded-sm border border-primary accent-primary" />
         <label for="upgrade-emails" class="text-sm font-medium leading-none cursor-pointer">Allow us to send you emails</label>
       </div>
     </div>
   </div>
   <div class="flex items-center justify-between p-6 pt-0">
-    <button class="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background">Cancel</button>
-    <button class="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background">Upgrade Plan</button>
+    <button class="inline-flex items-center justify-center rounded-md border border-input bg-background h-9 px-4 py-2 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring">Cancel</button>
+    <button class="inline-flex items-center justify-center rounded-md bg-primary h-9 px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring">Upgrade Plan</button>
   </div>
 </div>
 {{ end }}
 
 {{ define "card-team" }}
-<div class="rounded-lg border border-border bg-card text-card-foreground shadow-sm">
-  <div class="flex flex-col space-y-1.5 p-6">
+<div class="rounded-xl border bg-card text-card-foreground shadow-sm">
+  <div class="flex flex-col gap-1.5 p-6">
     <h3 class="font-semibold leading-none tracking-tight text-foreground">Team Members</h3>
     <p class="text-sm text-muted-foreground">Invite your team members to collaborate.</p>
   </div>
@@ -159,7 +159,7 @@
           <p class="text-xs text-muted-foreground">{{ .Email }}</p>
         </div>
       </div>
-      <select class="flex h-8 rounded-md border border-input bg-transparent px-2 py-1 text-xs text-foreground shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+      <select class="flex h-8 rounded-md border border-input bg-transparent px-2 py-1 text-xs text-foreground shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring">
         <option value="owner" class="bg-popover" {{ if eq .Role "Owner" }}selected{{ end }}>Owner</option>
         <option value="developer" class="bg-popover" {{ if eq .Role "Developer" }}selected{{ end }}>Developer</option>
         <option value="billing" class="bg-popover" {{ if eq .Role "Billing" }}selected{{ end }}>Billing</option>
@@ -172,8 +172,8 @@
 {{ end }}
 
 {{ define "card-cookie-settings" }}
-<div class="rounded-lg border border-border bg-card text-card-foreground shadow-sm">
-  <div class="flex flex-col space-y-1.5 p-6">
+<div class="rounded-xl border bg-card text-card-foreground shadow-sm">
+  <div class="flex flex-col gap-1.5 p-6">
     <h3 class="font-semibold leading-none tracking-tight text-foreground">Cookie Settings</h3>
     <p class="text-sm text-muted-foreground">Manage your cookie settings here.</p>
   </div>
@@ -184,8 +184,8 @@
         <p class="text-xs text-muted-foreground">These cookies are essential in order to use the website and use its features.</p>
       </div>
       <label class="relative inline-flex cursor-pointer shrink-0">
-        <input type="checkbox" checked disabled class="sr-only peer" />
-        <div class="h-5 w-9 rounded-full bg-input transition-colors peer-checked:bg-primary peer-disabled:opacity-70 after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:h-4 after:w-4 after:rounded-full after:bg-background after:shadow-sm after:transition-transform peer-checked:after:translate-x-4"></div>
+        <input type="checkbox" checked disabled role="switch" class="sr-only peer" />
+        <div class="h-5 w-9 rounded-full border-2 border-transparent bg-input shadow-sm transition-colors peer-checked:bg-primary peer-disabled:opacity-70 after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:h-4 after:w-4 after:rounded-full after:bg-background after:shadow-lg after:transition-transform peer-checked:after:translate-x-4"></div>
       </label>
     </div>
     <div class="flex items-start justify-between gap-4">
@@ -194,8 +194,8 @@
         <p class="text-xs text-muted-foreground">These cookies allow the website to provide personalized functionality.</p>
       </div>
       <label class="relative inline-flex cursor-pointer shrink-0">
-        <input type="checkbox" class="sr-only peer" />
-        <div class="h-5 w-9 rounded-full bg-input transition-colors peer-checked:bg-primary after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:h-4 after:w-4 after:rounded-full after:bg-background after:shadow-sm after:transition-transform peer-checked:after:translate-x-4"></div>
+        <input type="checkbox" role="switch" class="sr-only peer" />
+        <div class="h-5 w-9 rounded-full border-2 border-transparent bg-input shadow-sm transition-colors peer-checked:bg-primary after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:h-4 after:w-4 after:rounded-full after:bg-background after:shadow-lg after:transition-transform peer-checked:after:translate-x-4"></div>
       </label>
     </div>
     <div class="flex items-start justify-between gap-4">
@@ -204,30 +204,30 @@
         <p class="text-xs text-muted-foreground">These cookies help to improve the performance of the website.</p>
       </div>
       <label class="relative inline-flex cursor-pointer shrink-0">
-        <input type="checkbox" class="sr-only peer" />
-        <div class="h-5 w-9 rounded-full bg-input transition-colors peer-checked:bg-primary after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:h-4 after:w-4 after:rounded-full after:bg-background after:shadow-sm after:transition-transform peer-checked:after:translate-x-4"></div>
+        <input type="checkbox" role="switch" class="sr-only peer" />
+        <div class="h-5 w-9 rounded-full border-2 border-transparent bg-input shadow-sm transition-colors peer-checked:bg-primary after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:h-4 after:w-4 after:rounded-full after:bg-background after:shadow-lg after:transition-transform peer-checked:after:translate-x-4"></div>
       </label>
     </div>
   </div>
   <div class="p-6 pt-0">
-    <button class="inline-flex items-center justify-center w-full rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background">Save preferences</button>
+    <button class="inline-flex items-center justify-center w-full rounded-md border border-input bg-background h-9 px-4 py-2 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring">Save preferences</button>
   </div>
 </div>
 {{ end }}
 
 {{ define "card-create-account" }}
-<div class="rounded-lg border border-border bg-card text-card-foreground shadow-sm">
-  <div class="flex flex-col items-center space-y-1.5 p-6 text-center">
+<div class="rounded-xl border bg-card text-card-foreground shadow-sm">
+  <div class="flex flex-col items-center gap-1.5 p-6 text-center">
     <h3 class="font-semibold leading-none tracking-tight text-foreground text-xl">Create an account</h3>
     <p class="text-sm text-muted-foreground">Enter your email below to create your account</p>
   </div>
   <div class="p-6 pt-0 space-y-4">
     <div class="grid grid-cols-2 gap-2">
-      <button class="inline-flex items-center justify-center gap-2 rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background">
+      <button class="inline-flex items-center justify-center gap-2 rounded-md border border-input bg-background h-9 px-4 py-2 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring">
         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
         GitHub
       </button>
-      <button class="inline-flex items-center justify-center gap-2 rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background">
+      <button class="inline-flex items-center justify-center gap-2 rounded-md border border-input bg-background h-9 px-4 py-2 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring">
         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
         Google
       </button>
@@ -238,19 +238,19 @@
     </div>
     <div class="space-y-2">
       <label for="create-email" class="text-sm font-medium leading-none">Email</label>
-      <input id="create-email" type="email" placeholder="m@example.com" class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm text-foreground shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" />
+      <input id="create-email" type="email" placeholder="m@example.com" class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base md:text-sm text-foreground shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring" />
     </div>
     <div class="space-y-2">
       <label for="create-password" class="text-sm font-medium leading-none">Password</label>
-      <input id="create-password" type="password" class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm text-foreground shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" />
+      <input id="create-password" type="password" class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base md:text-sm text-foreground shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring" />
     </div>
-    <button class="inline-flex items-center justify-center w-full rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background">Create Account</button>
+    <button class="inline-flex items-center justify-center w-full rounded-md bg-primary h-9 px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring">Create Account</button>
   </div>
 </div>
 {{ end }}
 
 {{ define "card-chat" }}
-<div class="rounded-lg border border-border bg-card text-card-foreground shadow-sm flex flex-col">
+<div class="rounded-xl border bg-card text-card-foreground shadow-sm flex flex-col">
   <!-- Chat Header -->
   <div class="flex items-center gap-3 p-6 pb-4">
     <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-medium text-primary-foreground">S</div>
@@ -277,8 +277,8 @@
   <!-- Chat Input -->
   <div class="p-6 pt-0">
     <div class="flex gap-2">
-      <input type="text" placeholder="Type your message..." class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm text-foreground shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" />
-      <button class="inline-flex items-center justify-center rounded-md bg-primary px-3 py-2 text-sm font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background">
+      <input type="text" placeholder="Type your message..." class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base md:text-sm text-foreground shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring" />
+      <button class="inline-flex items-center justify-center rounded-md bg-primary h-9 w-9 text-sm font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></svg>
       </button>
     </div>
@@ -287,8 +287,8 @@
 {{ end }}
 
 {{ define "card-report-issue" }}
-<div class="rounded-lg border border-border bg-card text-card-foreground shadow-sm">
-  <div class="flex flex-col space-y-1.5 p-6">
+<div class="rounded-xl border bg-card text-card-foreground shadow-sm">
+  <div class="flex flex-col gap-1.5 p-6">
     <h3 class="font-semibold leading-none tracking-tight text-foreground">Report an issue</h3>
     <p class="text-sm text-muted-foreground">What area are you having problems with?</p>
   </div>
@@ -296,7 +296,7 @@
     <div class="grid grid-cols-2 gap-4">
       <div class="space-y-2">
         <label for="report-area" class="text-sm font-medium leading-none">Area</label>
-        <select id="report-area" class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm text-foreground shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+        <select id="report-area" class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base md:text-sm text-foreground shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring">
           <option value="team" class="bg-popover">Team</option>
           <option value="billing" class="bg-popover">Billing</option>
           <option value="account" class="bg-popover">Account</option>
@@ -305,7 +305,7 @@
       </div>
       <div class="space-y-2">
         <label for="report-security" class="text-sm font-medium leading-none">Security Level</label>
-        <select id="report-security" class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm text-foreground shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+        <select id="report-security" class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base md:text-sm text-foreground shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring">
           <option value="1" class="bg-popover">Severity 1 (Highest)</option>
           <option value="2" class="bg-popover" selected>Severity 2</option>
           <option value="3" class="bg-popover">Severity 3</option>
@@ -315,32 +315,32 @@
     </div>
     <div class="space-y-2">
       <label for="report-subject" class="text-sm font-medium leading-none">Subject</label>
-      <input id="report-subject" type="text" placeholder="I need help with..." class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm text-foreground shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" />
+      <input id="report-subject" type="text" placeholder="I need help with..." class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base md:text-sm text-foreground shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring" />
     </div>
     <div class="space-y-2">
       <label for="report-description" class="text-sm font-medium leading-none">Description</label>
-      <textarea id="report-description" placeholder="Please include all information relevant to your issue." rows="3" class="flex w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm text-foreground shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring resize-none"></textarea>
+      <textarea id="report-description" placeholder="Please include all information relevant to your issue." rows="3" class="flex min-h-[60px] w-full rounded-md border border-input bg-transparent px-3 py-2 text-base md:text-sm text-foreground shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring resize-none"></textarea>
     </div>
   </div>
   <div class="flex items-center justify-between p-6 pt-0">
-    <button class="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background">Cancel</button>
-    <button class="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background">Submit</button>
+    <button class="inline-flex items-center justify-center rounded-md border border-input bg-background h-9 px-4 py-2 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring">Cancel</button>
+    <button class="inline-flex items-center justify-center rounded-md bg-primary h-9 px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring">Submit</button>
   </div>
 </div>
 {{ end }}
 
 {{ define "card-share" }}
-<div class="rounded-lg border border-border bg-card text-card-foreground shadow-sm">
-  <div class="flex flex-col space-y-1.5 p-6">
+<div class="rounded-xl border bg-card text-card-foreground shadow-sm">
+  <div class="flex flex-col gap-1.5 p-6">
     <h3 class="font-semibold leading-none tracking-tight text-foreground">Share this document</h3>
     <p class="text-sm text-muted-foreground">Anyone with the link can view this document.</p>
   </div>
   <div class="p-6 pt-0 space-y-4">
     <div class="flex gap-2">
-      <input type="text" value="https://example.com/link/to/document" readonly class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm text-muted-foreground shadow-sm" />
-      <button class="inline-flex items-center justify-center rounded-md border border-input bg-background px-3 py-2 text-sm font-medium text-foreground shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background whitespace-nowrap">Copy Link</button>
+      <input type="text" value="https://example.com/link/to/document" readonly class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base md:text-sm text-muted-foreground shadow-sm" />
+      <button class="inline-flex items-center justify-center rounded-md border border-input bg-background h-9 px-3 py-2 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring whitespace-nowrap">Copy Link</button>
     </div>
-    <div class="shrink-0 bg-border h-px w-full" role="separator"></div>
+    <div class="shrink-0 bg-border h-[1px] w-full" role="separator"></div>
     <div class="space-y-1">
       <h4 class="text-sm font-medium text-foreground">People with access</h4>
     </div>
@@ -353,7 +353,7 @@
           <p class="text-xs text-muted-foreground">{{ .Email }}</p>
         </div>
       </div>
-      <select class="flex h-8 rounded-md border border-input bg-transparent px-2 py-1 text-xs text-foreground shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+      <select class="flex h-8 rounded-md border border-input bg-transparent px-2 py-1 text-xs text-foreground shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring">
         <option value="view" class="bg-popover" {{ if eq .Access "Can view" }}selected{{ end }}>Can view</option>
         <option value="edit" class="bg-popover" {{ if eq .Access "Can edit" }}selected{{ end }}>Can edit</option>
       </select>

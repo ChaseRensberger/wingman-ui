@@ -1,25 +1,25 @@
 {{ define "tabs-showcase" }}
-<div class="max-w-lg" x-data="{ activeTab: 'account' }">
+<div class="max-w-lg">
   <!-- Tab navigation using radio buttons for pure CSS state -->
   <input type="radio" name="tabs-demo" id="tab-account" class="sr-only peer/account" checked />
   <input type="radio" name="tabs-demo" id="tab-password" class="sr-only peer/password" />
   <input type="radio" name="tabs-demo" id="tab-settings" class="sr-only peer/settings" />
 
   <!-- Tab List -->
-  <div class="inline-flex h-9 items-center justify-center rounded-lg bg-muted p-1 text-muted-foreground w-full">
-    <label for="tab-account" class="inline-flex items-center justify-center whitespace-nowrap rounded-md px-3 py-1 text-sm font-medium transition-all cursor-pointer peer-checked/account:bg-background peer-checked/account:text-foreground peer-checked/account:shadow-sm flex-1 text-center">
+  <div role="tablist" class="inline-flex h-9 items-center justify-center rounded-lg bg-muted p-1 text-muted-foreground w-full">
+    <label for="tab-account" role="tab" class="inline-flex items-center justify-center whitespace-nowrap rounded-md px-3 py-1 text-sm font-medium transition-all cursor-pointer peer-checked/account:bg-background peer-checked/account:text-foreground peer-checked/account:shadow flex-1 text-center">
       Account
     </label>
-    <label for="tab-password" class="inline-flex items-center justify-center whitespace-nowrap rounded-md px-3 py-1 text-sm font-medium transition-all cursor-pointer peer-checked/password:bg-background peer-checked/password:text-foreground peer-checked/password:shadow-sm flex-1 text-center">
+    <label for="tab-password" role="tab" class="inline-flex items-center justify-center whitespace-nowrap rounded-md px-3 py-1 text-sm font-medium transition-all cursor-pointer peer-checked/password:bg-background peer-checked/password:text-foreground peer-checked/password:shadow flex-1 text-center">
       Password
     </label>
-    <label for="tab-settings" class="inline-flex items-center justify-center whitespace-nowrap rounded-md px-3 py-1 text-sm font-medium transition-all cursor-pointer peer-checked/settings:bg-background peer-checked/settings:text-foreground peer-checked/settings:shadow-sm flex-1 text-center">
+    <label for="tab-settings" role="tab" class="inline-flex items-center justify-center whitespace-nowrap rounded-md px-3 py-1 text-sm font-medium transition-all cursor-pointer peer-checked/settings:bg-background peer-checked/settings:text-foreground peer-checked/settings:shadow flex-1 text-center">
       Settings
     </label>
   </div>
 
   <!-- Account Tab Content -->
-  <div class="mt-4 rounded-lg border border-border bg-card p-6 hidden peer-checked/account:block">
+  <div role="tabpanel" class="mt-2 rounded-lg border border-border bg-card p-6 hidden peer-checked/account:block">
     <div class="space-y-4">
       <div class="space-y-2">
         <h4 class="text-base font-medium text-foreground">Account</h4>
@@ -27,18 +27,18 @@
       </div>
       <div class="space-y-2">
         <label for="tab-name" class="text-sm font-medium leading-none">Name</label>
-        <input id="tab-name" type="text" value="Chase Northcutt" class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm text-foreground shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" />
+        <input id="tab-name" type="text" value="Chase Northcutt" class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base md:text-sm text-foreground shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring" />
       </div>
       <div class="space-y-2">
         <label for="tab-email" class="text-sm font-medium leading-none">Email</label>
-        <input id="tab-email" type="email" value="chase@example.com" class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm text-foreground shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" />
+        <input id="tab-email" type="email" value="chase@example.com" class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base md:text-sm text-foreground shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring" />
       </div>
-      <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background">Save changes</button>
+      <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md bg-primary h-9 px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring">Save changes</button>
     </div>
   </div>
 
   <!-- Password Tab Content -->
-  <div class="mt-4 rounded-lg border border-border bg-card p-6 hidden peer-checked/password:block">
+  <div role="tabpanel" class="mt-2 rounded-lg border border-border bg-card p-6 hidden peer-checked/password:block">
     <div class="space-y-4">
       <div class="space-y-2">
         <h4 class="text-base font-medium text-foreground">Password</h4>
@@ -46,18 +46,18 @@
       </div>
       <div class="space-y-2">
         <label for="tab-current-pw" class="text-sm font-medium leading-none">Current password</label>
-        <input id="tab-current-pw" type="password" class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm text-foreground shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" />
+        <input id="tab-current-pw" type="password" class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base md:text-sm text-foreground shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring" />
       </div>
       <div class="space-y-2">
         <label for="tab-new-pw" class="text-sm font-medium leading-none">New password</label>
-        <input id="tab-new-pw" type="password" class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm text-foreground shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" />
+        <input id="tab-new-pw" type="password" class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base md:text-sm text-foreground shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring" />
       </div>
-      <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background">Save password</button>
+      <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md bg-primary h-9 px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring">Save password</button>
     </div>
   </div>
 
   <!-- Settings Tab Content -->
-  <div class="mt-4 rounded-lg border border-border bg-card p-6 hidden peer-checked/settings:block">
+  <div role="tabpanel" class="mt-2 rounded-lg border border-border bg-card p-6 hidden peer-checked/settings:block">
     <div class="space-y-4">
       <div class="space-y-2">
         <h4 class="text-base font-medium text-foreground">Settings</h4>
@@ -69,8 +69,8 @@
           <p class="text-xs text-muted-foreground">Toggle dark mode theme.</p>
         </div>
         <label class="relative inline-flex cursor-pointer">
-          <input type="checkbox" checked class="sr-only peer" />
-          <div class="h-5 w-9 rounded-full bg-input transition-colors peer-checked:bg-primary after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:h-4 after:w-4 after:rounded-full after:bg-background after:shadow-sm after:transition-transform peer-checked:after:translate-x-4"></div>
+          <input type="checkbox" checked role="switch" class="sr-only peer" />
+          <div class="h-5 w-9 rounded-full border-2 border-transparent bg-input shadow-sm transition-colors peer-checked:bg-primary after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:h-4 after:w-4 after:rounded-full after:bg-background after:shadow-lg after:transition-transform peer-checked:after:translate-x-4"></div>
         </label>
       </div>
       <div class="flex items-center justify-between">
@@ -79,8 +79,8 @@
           <p class="text-xs text-muted-foreground">Receive weekly email digests.</p>
         </div>
         <label class="relative inline-flex cursor-pointer">
-          <input type="checkbox" class="sr-only peer" />
-          <div class="h-5 w-9 rounded-full bg-input transition-colors peer-checked:bg-primary after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:h-4 after:w-4 after:rounded-full after:bg-background after:shadow-sm after:transition-transform peer-checked:after:translate-x-4"></div>
+          <input type="checkbox" role="switch" class="sr-only peer" />
+          <div class="h-5 w-9 rounded-full border-2 border-transparent bg-input shadow-sm transition-colors peer-checked:bg-primary after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:h-4 after:w-4 after:rounded-full after:bg-background after:shadow-lg after:transition-transform peer-checked:after:translate-x-4"></div>
         </label>
       </div>
     </div>
