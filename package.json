@@ -3,6 +3,9 @@
   "module": "index.ts",
   "type": "module",
   "private": true,
+  "scripts": {
+    "css:build": "bunx @tailwindcss/cli -i input.css -o output.css"
+  },
   "devDependencies": {
     "@tailwindcss/cli": "^4.2.2",
     "@types/bun": "latest",
