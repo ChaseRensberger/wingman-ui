@@ -1,0 +1,58 @@
+{{ define "avatar-showcase" }}
+<div class="space-y-6">
+  <!-- Single Avatars -->
+  <div class="flex items-center gap-4">
+    <!-- Avatar with Image -->
+    <div class="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full">
+      <div class="flex h-full w-full items-center justify-center rounded-full bg-primary text-sm font-medium text-primary-foreground">
+        CN
+      </div>
+    </div>
+    <!-- Avatar with Initials -->
+    <div class="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full">
+      <div class="flex h-full w-full items-center justify-center rounded-full bg-muted text-sm font-medium text-muted-foreground">
+        JD
+      </div>
+    </div>
+    <!-- Smaller Avatar -->
+    <div class="relative flex h-8 w-8 shrink-0 overflow-hidden rounded-full">
+      <div class="flex h-full w-full items-center justify-center rounded-full bg-secondary text-xs font-medium text-secondary-foreground">
+        AB
+      </div>
+    </div>
+    <!-- Larger Avatar -->
+    <div class="relative flex h-12 w-12 shrink-0 overflow-hidden rounded-full">
+      <div class="flex h-full w-full items-center justify-center rounded-full bg-accent text-base font-medium text-accent-foreground">
+        WM
+      </div>
+    </div>
+  </div>
+
+  <!-- Avatar Group (Stacked) -->
+  <div class="flex items-center">
+    <div class="relative flex h-9 w-9 shrink-0 overflow-hidden rounded-full border-2 border-background">
+      <div class="flex h-full w-full items-center justify-center rounded-full bg-primary text-xs font-medium text-primary-foreground">A</div>
+    </div>
+    <div class="relative flex h-9 w-9 shrink-0 overflow-hidden rounded-full border-2 border-background -ml-3">
+      <div class="flex h-full w-full items-center justify-center rounded-full bg-destructive text-xs font-medium text-destructive-foreground">B</div>
+    </div>
+    <div class="relative flex h-9 w-9 shrink-0 overflow-hidden rounded-full border-2 border-background -ml-3">
+      <div class="flex h-full w-full items-center justify-center rounded-full bg-muted text-xs font-medium text-muted-foreground">C</div>
+    </div>
+    <div class="relative flex h-9 w-9 shrink-0 overflow-hidden rounded-full border-2 border-background -ml-3">
+      <div class="flex h-full w-full items-center justify-center rounded-full bg-secondary text-xs font-medium text-secondary-foreground">+3</div>
+    </div>
+  </div>
+
+  <!-- Avatar with Name -->
+  <div class="flex items-center gap-3">
+    <div class="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full">
+      <div class="flex h-full w-full items-center justify-center rounded-full bg-primary text-sm font-medium text-primary-foreground">CN</div>
+    </div>
+    <div class="space-y-0.5">
+      <p class="text-sm font-medium text-foreground">Chase Northcutt</p>
+      <p class="text-xs text-muted-foreground">chase@example.com</p>
+    </div>
+  </div>
+</div>
+{{ end }}

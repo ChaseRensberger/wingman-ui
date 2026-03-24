@@ -1,0 +1,56 @@
+{{ define "progress-showcase" }}
+<div class="space-y-6 max-w-md">
+  <!-- Progress Bars at different values -->
+  <div class="space-y-2">
+    <div class="flex justify-between text-sm">
+      <span class="text-muted-foreground">Loading...</span>
+      <span class="text-muted-foreground">25%</span>
+    </div>
+    <div class="relative h-2 w-full overflow-hidden rounded-full bg-primary/20" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+      <div class="h-full rounded-full bg-primary transition-all" style="width: 25%"></div>
+    </div>
+  </div>
+
+  <div class="space-y-2">
+    <div class="flex justify-between text-sm">
+      <span class="text-muted-foreground">Uploading...</span>
+      <span class="text-muted-foreground">60%</span>
+    </div>
+    <div class="relative h-2 w-full overflow-hidden rounded-full bg-primary/20" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+      <div class="h-full rounded-full bg-primary transition-all" style="width: 60%"></div>
+    </div>
+  </div>
+
+  <div class="space-y-2">
+    <div class="flex justify-between text-sm">
+      <span class="text-muted-foreground">Complete</span>
+      <span class="text-muted-foreground">100%</span>
+    </div>
+    <div class="relative h-2 w-full overflow-hidden rounded-full bg-primary/20" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+      <div class="h-full rounded-full bg-primary transition-all" style="width: 100%"></div>
+    </div>
+  </div>
+
+  <!-- Thicker Progress -->
+  <div class="space-y-2">
+    <div class="flex justify-between text-sm">
+      <span class="text-muted-foreground">Storage Used</span>
+      <span class="text-muted-foreground">7.2 GB / 15 GB</span>
+    </div>
+    <div class="relative h-3 w-full overflow-hidden rounded-full bg-primary/20" role="progressbar" aria-valuenow="48" aria-valuemin="0" aria-valuemax="100">
+      <div class="h-full rounded-full bg-primary transition-all" style="width: 48%"></div>
+    </div>
+  </div>
+
+  <!-- Destructive Progress -->
+  <div class="space-y-2">
+    <div class="flex justify-between text-sm">
+      <span class="text-muted-foreground">Disk Space</span>
+      <span class="text-destructive font-medium">92%</span>
+    </div>
+    <div class="relative h-2 w-full overflow-hidden rounded-full bg-destructive/20" role="progressbar" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100">
+      <div class="h-full rounded-full bg-destructive transition-all" style="width: 92%"></div>
+    </div>
+  </div>
+</div>
+{{ end }}

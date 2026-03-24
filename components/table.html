@@ -1,0 +1,59 @@
+{{ define "card-payments" }}
+<div class="rounded-lg border border-border bg-card text-card-foreground shadow-sm">
+  <div class="flex flex-row items-center justify-between p-6">
+    <div>
+      <h3 class="font-semibold leading-none tracking-tight text-foreground">Payments</h3>
+      <p class="text-sm text-muted-foreground mt-1">Manage your payments.</p>
+    </div>
+    <button class="inline-flex items-center justify-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+      Add Payment
+    </button>
+  </div>
+  <div class="p-0">
+    <div class="w-full overflow-auto">
+      <table class="w-full caption-bottom text-sm">
+        <thead>
+          <tr class="border-t border-b border-border transition-colors">
+            <th class="h-10 px-6 text-left align-middle font-medium text-muted-foreground">Status</th>
+            <th class="h-10 px-4 text-left align-middle font-medium text-muted-foreground">Email</th>
+            <th class="h-10 px-4 text-right align-middle font-medium text-muted-foreground">Amount</th>
+            <th class="h-10 px-4 text-right align-middle font-medium text-muted-foreground w-10"></th>
+          </tr>
+        </thead>
+        <tbody>
+          {{ range .Payments }}
+          <tr class="border-b border-border transition-colors hover:bg-muted/50">
+            <td class="px-6 py-3 align-middle">
+              {{ if eq .Status "success" }}
+              <span class="inline-flex items-center rounded-md bg-primary/15 px-2 py-0.5 text-xs font-medium text-primary">{{ .Status }}</span>
+              {{ else if eq .Status "processing" }}
+              <span class="inline-flex items-center rounded-md bg-muted px-2 py-0.5 text-xs font-medium text-muted-foreground">{{ .Status }}</span>
+              {{ else if eq .Status "failed" }}
+              <span class="inline-flex items-center rounded-md bg-destructive/15 px-2 py-0.5 text-xs font-medium text-destructive">{{ .Status }}</span>
+              {{ else }}
+              <span class="inline-flex items-center rounded-md bg-secondary px-2 py-0.5 text-xs font-medium text-secondary-foreground">{{ .Status }}</span>
+              {{ end }}
+            </td>
+            <td class="px-4 py-3 align-middle text-foreground">{{ .Email }}</td>
+            <td class="px-4 py-3 align-middle text-right text-foreground font-medium">{{ .Amount }}</td>
+            <td class="px-4 py-3 align-middle text-right">
+              <button class="inline-flex items-center justify-center rounded-md p-1.5 text-muted-foreground transition-colors hover:bg-accent hover:text-foreground" aria-label="Open menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+              </button>
+            </td>
+          </tr>
+          {{ end }}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="flex items-center justify-between p-6 pt-4">
+    <p class="text-xs text-muted-foreground">0 of {{ len .Payments }} row(s) selected.</p>
+    <div class="flex gap-2">
+      <button disabled class="inline-flex items-center justify-center rounded-md border border-input bg-background px-3 py-1.5 text-xs font-medium text-foreground shadow-sm transition-colors hover:bg-accent disabled:pointer-events-none disabled:opacity-50">Previous</button>
+      <button class="inline-flex items-center justify-center rounded-md border border-input bg-background px-3 py-1.5 text-xs font-medium text-foreground shadow-sm transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background">Next</button>
+    </div>
+  </div>
+</div>
+{{ end }}

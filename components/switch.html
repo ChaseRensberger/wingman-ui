@@ -1,0 +1,33 @@
+{{ define "switch-showcase" }}
+<div class="space-y-6">
+  <!-- Basic Switch -->
+  <div class="flex items-center justify-between max-w-xs">
+    <label for="switch-airplane" class="text-sm font-medium leading-none cursor-pointer">Airplane Mode</label>
+    <label class="relative inline-flex cursor-pointer">
+      <input id="switch-airplane" type="checkbox" class="sr-only peer" />
+      <div class="h-5 w-9 rounded-full bg-input transition-colors peer-checked:bg-primary peer-focus-visible:ring-2 peer-focus-visible:ring-ring peer-focus-visible:ring-offset-2 peer-focus-visible:ring-offset-background peer-disabled:cursor-not-allowed peer-disabled:opacity-50 after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:h-4 after:w-4 after:rounded-full after:bg-background after:shadow-sm after:transition-transform peer-checked:after:translate-x-4"></div>
+    </label>
+  </div>
+
+  <!-- Switch with Description -->
+  <div class="flex items-start justify-between max-w-xs gap-4">
+    <div class="space-y-0.5">
+      <label for="switch-notifications" class="text-sm font-medium leading-none cursor-pointer">Notifications</label>
+      <p class="text-xs text-muted-foreground">Receive notifications about activity.</p>
+    </div>
+    <label class="relative inline-flex cursor-pointer shrink-0">
+      <input id="switch-notifications" type="checkbox" checked class="sr-only peer" />
+      <div class="h-5 w-9 rounded-full bg-input transition-colors peer-checked:bg-primary peer-focus-visible:ring-2 peer-focus-visible:ring-ring peer-focus-visible:ring-offset-2 peer-focus-visible:ring-offset-background peer-disabled:cursor-not-allowed peer-disabled:opacity-50 after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:h-4 after:w-4 after:rounded-full after:bg-background after:shadow-sm after:transition-transform peer-checked:after:translate-x-4"></div>
+    </label>
+  </div>
+
+  <!-- Disabled Switch -->
+  <div class="flex items-center justify-between max-w-xs">
+    <label for="switch-disabled" class="text-sm font-medium leading-none opacity-50">Disabled</label>
+    <label class="relative inline-flex cursor-not-allowed">
+      <input id="switch-disabled" type="checkbox" disabled class="sr-only peer" />
+      <div class="h-5 w-9 rounded-full bg-input transition-colors peer-checked:bg-primary peer-focus-visible:ring-2 peer-focus-visible:ring-ring peer-disabled:cursor-not-allowed peer-disabled:opacity-50 after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:h-4 after:w-4 after:rounded-full after:bg-background after:shadow-sm after:transition-transform peer-checked:after:translate-x-4"></div>
+    </label>
+  </div>
+</div>
+{{ end }}
