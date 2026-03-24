@@ -1,0 +1,231 @@
+{{ define "theme-editor" }}
+<!-- Theme Editor Drawer -->
+<div id="theme-editor-backdrop" class="fixed inset-0 z-40 bg-background/60 hidden" onclick="toggleThemeEditor()"></div>
+<aside id="theme-editor" class="fixed top-0 right-0 z-50 h-full w-80 overflow-x-hidden translate-x-full transition-transform duration-300 ease-in-out border-l border-border bg-card shadow-lg flex flex-col">
+  <!-- Header -->
+  <div class="flex items-center justify-between p-4 border-b border-border shrink-0">
+    <div>
+      <h2 class="text-sm font-semibold text-foreground">Theme Editor</h2>
+      <p class="text-xs text-muted-foreground mt-0.5">Live preview</p>
+    </div>
+    <button onclick="toggleThemeEditor()" class="inline-flex items-center justify-center rounded-md p-1.5 text-muted-foreground transition-colors hover:bg-accent hover:text-foreground" aria-label="Close theme editor">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+  </div>
+
+  <!-- Scrollable Controls -->
+  <div class="flex-1 overflow-y-auto p-4 space-y-6">
+    {{ range .ThemeGroups }}
+    <div class="space-y-2.5">
+      <h3 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground">{{ .Label }}</h3>
+      {{ range .Vars }}
+      <div class="flex items-center gap-3">
+        <input
+          type="color"
+          id="te-{{ .Name }}"
+          value="{{ .Default }}"
+          data-var="{{ .Name }}"
+          data-default="{{ .Default }}"
+          class="h-8 w-8 min-w-8 shrink-0 rounded-md border border-border cursor-pointer bg-transparent p-0.5 [&::-webkit-color-swatch-wrapper]:p-0 [&::-webkit-color-swatch]:rounded [&::-webkit-color-swatch]:border-0 [&::-moz-color-swatch]:rounded [&::-moz-color-swatch]:border-0"
+          oninput="applyColor(this)"
+        />
+        <div class="flex flex-col min-w-0 flex-1">
+          <label for="te-{{ .Name }}" class="text-xs text-foreground font-mono truncate leading-tight">{{ .Name }}</label>
+          <span id="te-val-{{ .Name }}" class="text-[10px] text-muted-foreground font-mono leading-tight">{{ .Default }}</span>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+    {{ end }}
+
+    <!-- Radius -->
+    <div class="space-y-2.5">
+      <h3 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Radius</h3>
+      <div class="space-y-1.5">
+        <div class="flex items-center justify-between">
+          <label for="te-radius" class="text-xs text-foreground font-mono">--radius</label>
+          <span id="te-val-radius" class="text-[10px] text-muted-foreground font-mono">0.25rem</span>
+        </div>
+        <input
+          type="range"
+          id="te-radius"
+          min="0"
+          max="1.5"
+          step="0.125"
+          value="0.25"
+          class="w-full h-1.5 rounded-full appearance-none bg-input cursor-pointer accent-primary [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-3.5 [&::-webkit-slider-thumb]:w-3.5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-primary [&::-webkit-slider-thumb]:border-0 [&::-webkit-slider-thumb]:shadow-sm"
+          oninput="applyRadius(this)"
+        />
+        <div class="flex justify-between text-[10px] text-muted-foreground">
+          <span>0</span>
+          <span>0.375</span>
+          <span>0.75</span>
+          <span>1.125</span>
+          <span>1.5</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Actions -->
+  <div class="p-4 border-t border-border space-y-2 shrink-0">
+    <button onclick="exportTheme()" class="inline-flex items-center justify-center gap-2 w-full rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+      <span id="export-btn-text">Copy CSS to Clipboard</span>
+    </button>
+    <button onclick="resetTheme()" class="inline-flex items-center justify-center gap-2 w-full rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+      Reset to Defaults
+    </button>
+  </div>
+</aside>
+
+<script>
+(function() {
+  // ── Defaults (populated by Go template) ──
+  const DEFAULTS = {
+    {{ range .ThemeGroups }}{{ range .Vars }}"{{ .Name }}": "{{ .Default }}",
+    {{ end }}{{ end }}"radius": "0.25"
+  };
+
+  // ── Toggle drawer ──
+  window.toggleThemeEditor = function() {
+    const panel = document.getElementById('theme-editor');
+    const backdrop = document.getElementById('theme-editor-backdrop');
+    const isOpen = !panel.classList.contains('translate-x-full');
+    if (isOpen) {
+      panel.classList.add('translate-x-full');
+      backdrop.classList.add('hidden');
+    } else {
+      panel.classList.remove('translate-x-full');
+      backdrop.classList.remove('hidden');
+    }
+  };
+
+  // ── Apply a color change ──
+  window.applyColor = function(input) {
+    const varName = input.dataset.var;
+    const value = input.value;
+    document.documentElement.style.setProperty('--' + varName, value);
+    document.getElementById('te-val-' + varName).textContent = value;
+    saveToStorage();
+  };
+
+  // ── Apply radius change ──
+  window.applyRadius = function(input) {
+    const value = parseFloat(input.value);
+    document.documentElement.style.setProperty('--radius', value + 'rem');
+    document.getElementById('te-val-radius').textContent = value + 'rem';
+    saveToStorage();
+  };
+
+  // ── Reset to defaults ──
+  window.resetTheme = function() {
+    Object.keys(DEFAULTS).forEach(function(key) {
+      if (key === 'radius') {
+        document.documentElement.style.removeProperty('--radius');
+        const slider = document.getElementById('te-radius');
+        slider.value = DEFAULTS.radius;
+        document.getElementById('te-val-radius').textContent = DEFAULTS.radius + 'rem';
+      } else {
+        document.documentElement.style.removeProperty('--' + key);
+        const picker = document.getElementById('te-' + key);
+        if (picker) {
+          picker.value = DEFAULTS[key];
+          document.getElementById('te-val-' + key).textContent = DEFAULTS[key];
+        }
+      }
+    });
+    localStorage.removeItem('wingman-ui-theme');
+  };
+
+  // ── Export CSS ──
+  window.exportTheme = function() {
+    const root = getComputedStyle(document.documentElement);
+    let css = ':root {\n';
+    css += '  color-scheme: dark;\n';
+    css += '  font-synthesis: none;\n';
+    css += '  text-rendering: optimizeLegibility;\n';
+    css += '  -webkit-font-smoothing: antialiased;\n';
+    css += '  -moz-osx-font-smoothing: grayscale;\n\n';
+
+    Object.keys(DEFAULTS).forEach(function(key) {
+      if (key === 'radius') return;
+      const val = root.getPropertyValue('--' + key).trim();
+      css += '  --' + key + ': ' + val + ';\n';
+    });
+
+    const radius = root.getPropertyValue('--radius').trim();
+    css += '  --radius: ' + radius + ';\n';
+    css += '}\n';
+
+    navigator.clipboard.writeText(css).then(function() {
+      const btn = document.getElementById('export-btn-text');
+      const orig = btn.textContent;
+      btn.textContent = 'Copied!';
+      setTimeout(function() { btn.textContent = orig; }, 2000);
+    }).catch(function() {
+      // Fallback: open in a prompt
+      prompt('Copy this CSS:', css);
+    });
+  };
+
+  // ── localStorage persistence ──
+  function saveToStorage() {
+    const overrides = {};
+    const root = document.documentElement;
+
+    Object.keys(DEFAULTS).forEach(function(key) {
+      if (key === 'radius') {
+        const val = root.style.getPropertyValue('--radius');
+        if (val) overrides.radius = val;
+      } else {
+        const val = root.style.getPropertyValue('--' + key);
+        if (val) overrides[key] = val;
+      }
+    });
+
+    if (Object.keys(overrides).length > 0) {
+      localStorage.setItem('wingman-ui-theme', JSON.stringify(overrides));
+    } else {
+      localStorage.removeItem('wingman-ui-theme');
+    }
+  }
+
+  function loadFromStorage() {
+    try {
+      const saved = localStorage.getItem('wingman-ui-theme');
+      if (!saved) return;
+      const overrides = JSON.parse(saved);
+
+      Object.keys(overrides).forEach(function(key) {
+        if (key === 'radius') {
+          document.documentElement.style.setProperty('--radius', overrides[key]);
+          const slider = document.getElementById('te-radius');
+          if (slider) {
+            slider.value = parseFloat(overrides[key]);
+            document.getElementById('te-val-radius').textContent = overrides[key];
+          }
+        } else {
+          document.documentElement.style.setProperty('--' + key, overrides[key]);
+          const picker = document.getElementById('te-' + key);
+          if (picker) {
+            picker.value = overrides[key];
+            document.getElementById('te-val-' + key).textContent = overrides[key];
+          }
+        }
+      });
+    } catch(e) {
+      // Ignore corrupted data
+    }
+  }
+
+  // Load saved theme on DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadFromStorage);
+  } else {
+    loadFromStorage();
+  }
+})();
+</script>
+{{ end }}

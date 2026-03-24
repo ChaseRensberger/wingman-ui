@@ -29,10 +29,21 @@ type Payment struct {
 	Amount string
 }
 
+type ThemeVar struct {
+	Name    string
+	Default string
+}
+
+type ThemeGroup struct {
+	Label string
+	Vars  []ThemeVar
+}
+
 type PageData struct {
 	TeamMembers []TeamMember
 	SharedUsers []SharedUser
 	Payments    []Payment
+	ThemeGroups []ThemeGroup
 }
 
 func main() {
@@ -63,6 +74,72 @@ func main() {
 			{Status: "failed", Email: "carmella@example.com", Amount: "$721.00"},
 			{Status: "pending", Email: "jason78@example.com", Amount: "$450.00"},
 			{Status: "success", Email: "sarah23@example.com", Amount: "$1,280.00"},
+		},
+		ThemeGroups: []ThemeGroup{
+			{
+				Label: "Base",
+				Vars: []ThemeVar{
+					{Name: "background", Default: "#121212"},
+					{Name: "foreground", Default: "#c8c8c8"},
+				},
+			},
+			{
+				Label: "Card",
+				Vars: []ThemeVar{
+					{Name: "card", Default: "#181818"},
+					{Name: "card-foreground", Default: "#c8c8c8"},
+				},
+			},
+			{
+				Label: "Popover",
+				Vars: []ThemeVar{
+					{Name: "popover", Default: "#181818"},
+					{Name: "popover-foreground", Default: "#c8c8c8"},
+				},
+			},
+			{
+				Label: "Primary",
+				Vars: []ThemeVar{
+					{Name: "primary", Default: "#3d88c5"},
+					{Name: "primary-foreground", Default: "#e8e8e8"},
+				},
+			},
+			{
+				Label: "Secondary",
+				Vars: []ThemeVar{
+					{Name: "secondary", Default: "#1e1e1e"},
+					{Name: "secondary-foreground", Default: "#b0b0b0"},
+				},
+			},
+			{
+				Label: "Muted",
+				Vars: []ThemeVar{
+					{Name: "muted", Default: "#1e1e1e"},
+					{Name: "muted-foreground", Default: "#777777"},
+				},
+			},
+			{
+				Label: "Accent",
+				Vars: []ThemeVar{
+					{Name: "accent", Default: "#3d88c5"},
+					{Name: "accent-foreground", Default: "#e8e8e8"},
+				},
+			},
+			{
+				Label: "Destructive",
+				Vars: []ThemeVar{
+					{Name: "destructive", Default: "#c53d3d"},
+					{Name: "destructive-foreground", Default: "#e8e8e8"},
+				},
+			},
+			{
+				Label: "Borders & Ring",
+				Vars: []ThemeVar{
+					{Name: "border", Default: "#2a2a2a"},
+					{Name: "input", Default: "#2a2a2a"},
+					{Name: "ring", Default: "#3d88c5"},
+				},
+			},
 		},
 	}
 
